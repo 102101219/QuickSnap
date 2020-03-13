@@ -1,5 +1,6 @@
 ﻿using System;
 using SwinGameSDK;
+using System.Media;
 
 #if DEBUG
 using NUnit.Framework;
@@ -126,20 +127,34 @@ namespace CardGames.GameLogic
 				return 0;
 		}
 
-		/// <summary>
-		/// The player hit the top of the cards "snap"! :)
-		/// Check if the top two cards' ranks match.
-		/// </summary>
-		public void PlayerHit (int player)
+        /// <summary>
+        /// The player hit the top of the cards "snap"! :)
+        /// Check if the top two cards' ranks match.
+        /// </summary>
+
+        private SoundPlayer sound1;
+
+        public void PlayerHit (int player)
 		{
-			//TODO: consider deducting score for miss hits???
-			if ( player >= 0 && player < _score.Length &&  	// its a valid player
-				 IsStarted && 								// and the game is started
-				 _topCards [0] != null && _topCards [0].Rank == _topCards [1].Rank) // and its a match
-			{
-				_score[player]++;
-				//TODO: consider playing a sound here...
-			}
+            //TODO: consider deducting score for miss hits???
+            if (player >= 0 && player < _score.Length &&    // its a valid player
+                 IsStarted &&                               // and the game is started
+                 _topCards[0] != null && _topCards[0].Rank == _topCards[1].Rank) // and its a match
+            {
+                _score[player]++;
+                //TODO: consider playing a sound here...
+                // System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer;
+                //System.Media.SystemSound systemSound
+
+                sound1 = new SoundPlayer(@"c:\mywavfile.wav");
+
+
+            }
+            else if (player >= 0 && player < _score.Length)
+            {
+                _score[player]++;
+            }
+
 
 			// stop the game...
 			_started = false;
