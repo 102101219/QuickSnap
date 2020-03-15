@@ -146,6 +146,15 @@ namespace CardGames.GameLogic
                 // System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer;
                 //System.Media.SystemSound systemSound
 
+                /* sound1 = new SoundPlayer(@"c:\mywavfile.wav");
+
+
+             }
+             else if (player >= 0 && player < _score.Length)
+             {
+                 _score[player]++;
+             }*/
+
                 sound1 = new SoundPlayer(@"c:\mywavfile.wav");
 
 
@@ -156,8 +165,8 @@ namespace CardGames.GameLogic
             }
 
 
-			// stop the game...
-			_started = false;
+            // stop the game...
+            _started = false;
 		}
 	
 		#region Snap Game Unit Tests
